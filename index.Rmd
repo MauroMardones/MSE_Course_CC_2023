@@ -43,6 +43,13 @@ Contenidos del Curso-Taller *"Tópicos de Evaluación de Estrategias de Manejo (
 Curso de 8 horas lectivas distribuidaas en 4 clases de 2 horas cada una.
 
 
+
+```{r echo=FALSE, out.width = "90%", fig.align='center', fig.cap= "MSE diagram"}
+knitr::include_graphics("fig/MSE1.jpeg")
+```
+
+
+
 ### Día 1. 23 de Junio 
 
 - Introducción a la Evaluación de Estrategias/Procedimiento de Manejo pesquero (EEM)
@@ -50,6 +57,7 @@ Curso de 8 horas lectivas distribuidaas en 4 clases de 2 horas cada una.
 - Definición y tipos de reglas de control/decisión de capturas (RCC): basadas en la evaluación de stock vs basadas en indicadores empíricos
 - Identificación de objetivos/variables operacionales/desempeño
 - Ejemplos
+
 
 
 ### Dia 2: 30 de junio 
