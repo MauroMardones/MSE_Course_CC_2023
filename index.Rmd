@@ -59,6 +59,18 @@ knitr::include_graphics("fig/MSE1.jpeg")
 
 
 
+
+links de trabajo de simulación provisto en claes y perteneciente a Juan Valero [MSE game](https://valeromaspez.shinyapps.io/tunamse_opo_spn/)
+
+Esta herramienta permite a los usuarios explorar el desempeño de opciones de reglas de control de explotación para la ordenación de especies de túnidos. Ha sido desarrollada como herramienta educativa para resaltar aspectos de la aproximación de evaluación de estrategias de explotación (EEO).
+
+El paquete incluye tres componentes principales:
+
+- Realizar proyecciones especificando manualmente las capturas para cada año del período de la proyección (pestaña Manejo Manual)
+- Realizar proyecciones en las cuales se utiliza una regla de control de explotación (RCE) para establecer las capturas (pestaña Manejo con RCE)
+- Realizar proyecciones en las cuales se aplica una variedad de RCE (captura constante o tasa de explotación constante) (pestaña Seleccion de RCEs).
+- El usuario puede especificar la regla de control de explotación a ser aplicada usando la pestaña Manejo con RCE , y puede especificar algunos de los parámetros que definen las simulaciones usando la pestaña Configuracion . Los resultados de las proyecciones de RCE se presentan en la pestaña Resumen .
+
 ### Dia 2: 30 de junio 
 
 
