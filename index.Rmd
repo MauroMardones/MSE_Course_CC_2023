@@ -16,9 +16,9 @@ format:
     toc-float: true
     toc-depth: 4
     link-citations: yes
-#linkcolor: blue
-#bibliography: almeja.bib
-#csl: apa.csl
+linkcolor: blue
+bibliography: MSE.bib
+csl: apa.csl
 ---
 
 ```{r setup, include=FALSE, message=F}
@@ -60,7 +60,7 @@ knitr::include_graphics("fig/MSE1.jpeg")
 
 
 
-links de trabajo de simulación provisto en claes y perteneciente a Juan Valero [MSE game](https://valeromaspez.shinyapps.io/tunamse_opo_spn/)
+links de trabajo de simulación provisto en clases y perteneciente a Juan Valero [MSE game](https://valeromaspez.shinyapps.io/tunamse_opo_spn/)
 
 Esta herramienta permite a los usuarios explorar el desempeño de opciones de reglas de control de explotación para la ordenación de especies de túnidos. Ha sido desarrollada como herramienta educativa para resaltar aspectos de la aproximación de evaluación de estrategias de explotación (EEO).
 
@@ -70,6 +70,27 @@ El paquete incluye tres componentes principales:
 - Realizar proyecciones en las cuales se utiliza una regla de control de explotación (RCE) para establecer las capturas (pestaña Manejo con RCE)
 - Realizar proyecciones en las cuales se aplica una variedad de RCE (captura constante o tasa de explotación constante) (pestaña Seleccion de RCEs).
 - El usuario puede especificar la regla de control de explotación a ser aplicada usando la pestaña Manejo con RCE , y puede especificar algunos de los parámetros que definen las simulaciones usando la pestaña Configuracion . Los resultados de las proyecciones de RCE se presentan en la pestaña Resumen .
+
+### Otro ejercicio de simulación de HCR
+
+Existe otro elemento didactico creado por Blue Matters Science,  y que también es un shiny para identficar los PBR basado en distintas reglas de control, como se describe a continuación;
+
+> The Reference Point Calculator (RPC) is an interactive online app for exploring and deriving limit and target reference points for Canadian fisheries. Use of the RPC falls into two general categories. First, RPC is intended to visualize the stock dynamics, including those arising from environmental conditions experienced by the stock, needed to meet the Fish Stocks Provisions of the Fisheries Act, specifically the establishment of limit reference points (LRPs). Second, management strategies can then be evaluated against performance measures related to the LRP and other outcomes of interest using closed-loop simulation.
+
+Este ejercico tiene las bases conceptuales de @Carruthers2014,  @Carruthers2016d y @Carruthers2017
+
+el shiny se encuentra en el siguiente link;
+
+[RPC Reference Point Calculator 0.4.1.](https://shiny.bluematterscience.com/app/rpc)
+
+Y el detalle, descripción y guia de usuario es provista en la siuiguiente pagina;
+
+[Description RPC](https://blue-matter.github.io/openMSE/RPC-User-Guide.html)
+
+
+
+
+
 
 ### Dia 2: 30 de junio 
 
