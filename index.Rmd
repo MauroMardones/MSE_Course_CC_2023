@@ -38,16 +38,17 @@ knitr::opts_chunk$set(collapse = TRUE,
 
 # DESCRIPCIÓN
 
-Contenidos del Curso-Taller *"Tópicos de Evaluación de Estrategias de Manejo (EEM)*".
+El presente documento contiene el *syllabus*, así como también notas y material bibliográfico del Contenidos del Curso-Taller *"Tópicos de Evaluación de Estrategias de Manejo (EEM)*", impartido por el Dr. Cristian Canales  a investigadores del Instituto de Fomento Pesquero y Sectorialistas de la SubSecretaria de Pesca.
 
-Curso de 8 horas lectivas distribuidaas en 4 clases de 2 horas cada una.
+El objetivo del curso es otorgar una amplia mirada a la herramienta de evaluación de estrategias de manejo EEM o MSE por sus siglas en inglés) de pesquerías chilenas a través de aspectos conceptuales, teóricos y prácticos.
 
+El curso tendrá una druación de 8 horas lectivas distribuidas en 4 clases de 2 horas cada una.
 
-```{r echo=FALSE, out.width = "90%", fig.align='center', fig.cap= "MSE diagram"}
+```{r echo=FALSE, out.width = "50%", fig.align='center', fig.cap= "MSE diagram"}
 knitr::include_graphics("fig/MSE1.jpeg")
 ```
 
-
+# CONTENIDOS
 
 ### Día 1. 23 de Junio 
 
@@ -75,7 +76,7 @@ El paquete incluye tres componentes principales:
 
 Existe otro elemento didactico creado por Blue Matters Science,  y que también es un shiny para identficar los PBR basado en distintas reglas de control, como se describe a continuación;
 
-> The Reference Point Calculator (RPC) is an interactive online app for exploring and deriving limit and target reference points for Canadian fisheries. Use of the RPC falls into two general categories. First, RPC is intended to visualize the stock dynamics, including those arising from environmental conditions experienced by the stock, needed to meet the Fish Stocks Provisions of the Fisheries Act, specifically the establishment of limit reference points (LRPs). Second, management strategies can then be evaluated against performance measures related to the LRP and other outcomes of interest using closed-loop simulation.
+> The Reference Point Calculator (RPC) is an interactive online app for exploring and deriving limit and target reference points for Canadian fisheries. Use of the RPC falls into two general categories. First, RPC is intended to visualize the stock dynamics, including those arising from environmental conditions experienced by the stock, needed to meet the Fish Stocks Provisions of the Fisheries Act, specifically the establishment of limit reference points (LRPs). Second, management strategies can then be evaluated against performance measures related to the LRP and other outcomes of interest using closed-loop simulation. [@Huynh2023]
 
 Este ejercico tiene las bases conceptuales de @Carruthers2014,  @Carruthers2016d y @Carruthers2017
 
@@ -87,6 +88,21 @@ Y el detalle, descripción y guia de usuario es provista en la siuiguiente pagin
 
 [Description RPC](https://blue-matter.github.io/openMSE/RPC-User-Guide.html)
 
+
+En terminos conceptuales es necesario también identificar las diferencias entre un MSE y un Proedimiento de Manejo;
+
+@bentley2010 definen un PM como:
+ 
+ > Management procedures can take numerous and varied forms. This section begins with a description of the necessary characteristics that all management procedures must have. Next, we describe what role management procedures play inside a complete fisheries management policy. Finally, we discuss in more detail the component parts of a management procedure and how these
+parts can be put together in different ways to suit the particular management objectives for, and. characteristics of, a fishery. We provide some simple examples of management procedures.
+
+
+Y suscompoentes pueden ser identificados en la siguiente figura;
+
+
+```{r echo=FALSE, out.width = "90%", fig.align='center', fig.cap= "MSE diagram"}
+knitr::include_graphics("fig/PM.png")
+```
 
 
 
