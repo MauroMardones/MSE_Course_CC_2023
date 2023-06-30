@@ -149,7 +149,7 @@ knitr::include_graphics("fig/Error.png")
 
 - Implementación de un MO (R-studio). Modelamiento de procesos biológicos, pesqueros y decisionales (RCC)
 
-Ejercicio en el siguiente link [Ejercio 1]()
+Ejercicio en el siguiente link [Ejercio 1](Ejercicio-1.html)
 
 - Condicionamiento e identificación de MO alternativos.
 
