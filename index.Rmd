@@ -100,28 +100,64 @@ parts can be put together in different ways to suit the particular management ob
 Y suscompoentes pueden ser identificados en la siguiente figura;
 
 
-```{r echo=FALSE, out.width = "90%", fig.align='center', fig.cap= "MSE diagram"}
+```{r echo=FALSE, out.width = "50%", fig.align='center', fig.cap= "MSE diagram"}
 knitr::include_graphics("fig/PM.png")
 ```
 
 
 
-
-
 ### Dia 2: 30 de junio 
 
-
-
 - Ecuaciones de dinámica poblacional y diseño de Modelos Operativos (MO)
+
+Se explica como se configura un MO y a su vez se explican los distintos errores que se establecen en un modelo de evaluación:
+
+En relación con este objetivo, se detallan las fuentes de incertidumbre relevantes asociadas a errores de observación, de modelo, de proceso, de estimación y de implementación en relación con estas pesquerías, las que pueden variar dependiendo del contexto específico. A continuación, se presentan detalles asociados a algunas fuentes de incertidumbre comunes asociadas a los análisis y pesquerías objetivo:
+
+#### Error de observación:
+
+Errores de medición o muestreo en la recopilación de datos de la pesquería. También la posibilidad de tener sesgos o errores sistemáticos en los métodos de observación de los datos. Capturas y esfuerzo en el caso de brótula y cojinoba moteada y estructuras de tallas en el caso de cojinoba del
+sur.
+
+#### Errores de modelo:
+
+Se refiere a simplificaciones o suposiciones excesivas en la formulación del modelo ya sea de producción de excedentes o global o uno basado en tallas. Sin embargo, acá se asumen ciertos supuestos por las limitaciones de los datos recopilados (error de observación). Se puede incurrir en
+este error por falta de inclusión de factores relevantes en los modelo estadísticos e incluso conceptuales (Saltelli et al., 2008).
+
+#### Errores de proceso:
+Este tipo de error es uno de los más complejo de asumir y evaluar, dado que son errores inherentes a la variabilidad natural en los procesos biológicos o ambientales [@Hilborn1992]. Generalmente se asocia a cambios imprevistos en las condiciones o factores que afectan a las pesquerías y sus dinámicas. También se puede considerar que este error se magnifica cuando no hay una completa comprensión de los mecanismos subyacentes que rigen el proceso obre el cual los peces se desarrollan (Jorgensen & Fath, 2011).
+
+
+#### Errores de estimación:
+Ese se consigna como un error de muestreo al inferir características de una población a partir de una muestra que puede no ser representativa de los patrones buscados, y sea por una falta de representatividad o sesgos en la selección de la muestra en los programas de monitoreo pesquero
+Métodos de estimación inadecuados o inexactos utilizados.
+
+#### Errores de implementación:
+
+Este error se refiere a las desviaciones entre la implementación planificada y la implementación real. En específico, es cuando la cuota extraída o la recomendación de manejo pesquero no tiene consistencia con la realidad de la pesquería y su fiscalización o seguimiento (Reed, 2008). En este caso no es posible evaluar este error, dado que no existen plan de manejo para ninguna de las tres especies que haga operativa las recomendaciones propuestas.
+
+Ejemplo de error de proceso y observación:
+
+```{r echo=FALSE, out.width = "60%", fig.align='center', fig.cap= "Error de proceso"}
+knitr::include_graphics("fig/Error.png")
+```
+
+
 - Algunas distribuciones de probabilidad y aleatorización (R-studio). Simulación
+
 - Identificación de fuentes de incertidumbre
+
 - Implementación de un MO (R-studio). Modelamiento de procesos biológicos, pesqueros y decisionales (RCC)
+
+Ejercicio en el siguiente link [Ejercio 1]()
+
 - Condicionamiento e identificación de MO alternativos.
 
 
 
 
 ### Dia 3: 7 de julio 
+
 - Simulación de un procedimiento/estrategia de manejo (R-studio)
 - Compilación de resultados, variables y métricas de desempeño
 
