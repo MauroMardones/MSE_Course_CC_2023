@@ -125,7 +125,8 @@ Se refiere a simplificaciones o suposiciones excesivas en la formulación del mo
 este error por falta de inclusión de factores relevantes en los modelo estadísticos e incluso conceptuales (Saltelli et al., 2008).
 
 #### Errores de proceso:
-Este tipo de error es uno de los más complejo de asumir y evaluar, dado que son errores inherentes a la variabilidad natural en los procesos biológicos o ambientales [@Hilborn1992]. Generalmente se asocia a cambios imprevistos en las condiciones o factores que afectan a las pesquerías y sus dinámicas. También se puede considerar que este error se magnifica cuando no hay una completa comprensión de los mecanismos subyacentes que rigen el proceso obre el cual los peces se desarrollan (Jorgensen & Fath, 2011).
+
+Este tipo de error es uno de los más complejo de asumir y evaluar, dado que son errores inherentes a la variabilidad natural en los procesos biológicos o ambientales. Generalmente se asocia a cambios imprevistos en las condiciones o factores que afectan a las pesquerías y sus dinámicas. También se puede considerar que este error se magnifica cuando no hay una completa comprensión de los mecanismos subyacentes que rigen el proceso obre el cual los peces se desarrollan (Jorgensen & Fath, 2011).
 
 
 #### Errores de estimación:
@@ -146,6 +147,8 @@ knitr::include_graphics("fig/Error.png")
 - Algunas distribuciones de probabilidad y aleatorización (R-studio). Simulación
 
 - Identificación de fuentes de incertidumbre
+
+
 
 - Implementación de un MO (R-studio). Modelamiento de procesos biológicos, pesqueros y decisionales (RCC)
 
