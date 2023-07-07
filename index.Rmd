@@ -164,6 +164,8 @@ knitr::include_graphics("fig/Error.png")
 - Simulación de un procedimiento/estrategia de manejo (R-studio)
 - Compilación de resultados, variables y métricas de desempeño
 
+Se establecen y enlistan algunas varriables de desempeño que se vinculan a las metricas.
+
 
 
 ### Dia 4: 14 de julio 

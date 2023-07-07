@@ -1,8 +1,24 @@
 ---
 title: "Ejercicio 1"
-author: "Mauricio Mardones I."
-date: "2023-07-01"
-output: html_document
+subtitle: "Notas Curso- Taller MSE Julio 2023"
+author: "Mauricio Mardones I"
+date:  "`r format(Sys.time(), '%d %B, %Y')`"
+format:
+  html:
+    theme: cosmo
+    fontsize: 0.9em
+    linestretch: 1.7
+    html-math-method: katex
+    self-contained: true
+    embed-resources: true
+    code-tools: true
+    toc: true
+    toc-float: true
+    toc-depth: 4
+    link-citations: yes
+linkcolor: blue
+bibliography: MSE.bib
+csl: apa.csl
 ---
 
 ```{r setup, include=FALSE}
