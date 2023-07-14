@@ -25,22 +25,103 @@ csl: apa.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+### Leer la fuente de Dato
 
 ```{r cars}
-summary(cars)
+source("Data/error_cuota.r")
+ load("~/IFOP/Cursos_Congresos/MSE_Course_CC_2023/Data/Condiciones_ini.RData")
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+### Definir condiciones iniciales
+
+
+```{r}
+nanos=20 # años de proyección
+nrepite=200 # ciclos de repetición
+nm=150 # tamaño de muestra
+tasa=0.25 # tasa explot para la cuota
+dts=0.67 # desove
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+```{r}
+# errores de proceso y obs
+sigmaR=0.0
+cv_tasa=0.0
+cv_evdir=0.0
+cv_implementa=0.0
+```
+
+
+### Definicion de Arreglos
+
+```{r}
+N=matrix(NA,length(edad),nanos)
+C=matrix(NA,length(edad),nanos)
+Z=matrix(NA,length(edad),nanos)
+F=matrix(NA,length(edad),nanos)
+B=matrix(NA,1,nanos)
+Y=matrix(NA,1,nanos)
+BD=matrix(NA,1,nanos)
+Lmed=matrix(0,1,nanos)
+Nexplot=matrix(NA,1,nanos)
+```
+
+
+### matrices que almacenan las replicas
+```{r}
+matBio=matrix(0,nrepite,nanos)
+matCap=matrix(0,nrepite,nanos)
+matEff=matrix(0,nrepite,nanos)
+matLmed=matrix(0,nrepite,nanos)
+matNexp=matrix(0,nrepite,nanos)
+```
+
+### matriz para las variables de desempeño
+```{r}
+mat_result=matrix(NA,5,3)
+```
+
+### CALCULO DE PBR EMPIRICO: N de referencia (e.j 40%B0)
+```{r}
+
+
+Fref=Sel*Fpbr
+Zref=M+Fref
+N[1,1]=R0
+
+for (a in 2:length(edad))
+{ 
+  N[a,1]=N[a-1,1]*exp(-Zref[a-1])
+}
+
+N[a,1]=N[a,1]/(1-exp(-Zref[a])) # grupo plus
+Nexplot_ref=sum(N[,1]*Sel) # N explotable referencial al 40%B0
+Crms=N[,1]*Fref/Zref*(1-exp(-Zref))
+C_ref=sum(Crms) # Cuota de referencia sostenible
+BDrms=sum(Peso*N[,1]*Om*exp(-dts*Zref))
+
+```
+
+Identificar las abundancias a la edad
+
+```{r}
+N[,1]
+barplot(N[,1])
+```
+Año inicial 1
+
+```{r}
+N[,1]=Nini
+ F[,1]=Fini
+ Z[,1]=Zini
+ C[,1]=N[,1]*F[,1]*(1-exp(-Z[,1]))/Z[,1]
+ BD[1]=sum(Peso*N[,1]*Om*exp(-dts*Z[,1]))
+ Lmed[1]=sum(C[,1]*Ledad)/(sum(C[,1])+1e-10)
+ Nexplot[1]=sum(N[,1]*Sel)
+```
+
+
+

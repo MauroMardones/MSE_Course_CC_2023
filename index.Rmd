@@ -157,8 +157,6 @@ knitr::include_graphics("fig/Error.png")
 - Condicionamiento e identificación de MO alternativos.
 
 
-
-
 ### Dia 3: 7 de julio 
 
 - Simulación de un procedimiento/estrategia de manejo (R-studio)
