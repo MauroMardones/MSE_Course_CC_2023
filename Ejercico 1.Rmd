@@ -123,5 +123,161 @@ N[,1]=Nini
  Nexplot[1]=sum(N[,1]*Sel)
 ```
 
+```{r echo=TRUE, message=F}
+#---------------CICLOS DE ESTRATEGIAS---------------------
 
+for (z in 1:3)
+{ 
+  
+#---------------CICLOS DE REPLICAS---------------------
+for (i in 1:nrepite)
+{ 
+
+ # dinamica de sobrevivencia -----------------------------------
+
+
+ # Año inicial (1)
+ 
+ N[,1]=Nini
+ F[,1]=Fini
+ Z[,1]=Zini
+ C[,1]=N[,1]*F[,1]*(1-exp(-Z[,1]))/Z[,1]
+ BD[1]=sum(Peso*N[,1]*Om*exp(-dts*Z[,1]))
+ 
+ Lmed[1]=sum(C[,1]*Ledad)/(sum(C[,1])+1e-10)
+
+ Nexplot[1]=sum(N[,1]*Sel)
+ 
+ 
+for (t in 2:nanos)
+{ 
+
+ # Comps de edades de N al inicio de año  
+  N[1,t]=R0*exp(rnorm(1,0,sigmaR))
+  
+  N[2:length(edad),t]=N[1:length(edad)-1,t-1]*exp(-Z[1:length(edad)-1,t-1])
+  
+  N[length(edad),t]=N[length(edad),t]+N[length(edad),t-1]*exp(-Z[length(edad),t-1])
+  
+  # Simula la EVADIR a inicios de año
+  
+  q=1 # coef disponibilidad sin error(?)
+  
+  Comps_Nevadir=q*N[,t]*Sel
+  
+  Nevadir=sum(Comps_Nevadir)*exp(rnorm(1,0,cv_evdir))
+  
+  
+  #Composicion de edades y tallas EVADIR
+  Comps_l=t(Trans)%*%(Comps_Nevadir) #Comps a la talla (transformada)
+  p=Comps_l/sum(Comps_l)
+  
+  prop_l=rmultinom(1, nm, p)/nm # muestreo con error multinomial
+  
+  Comps=prop_l*Nevadir 
+
+  Nexplot[t]=Nevadir
+  
+  #calcula la cuota
+
+   if (z==1){
+   tasa_explot=exp(rnorm(1,log(tasa),cv_tasa))
+   Cuota=tasa_explot*Nexplot[t]
+   }
+
+
+  if (z==2){
+    Cuota= C_ref*min(c(1,Nexplot[t]/Nexplot_ref))
+  }
+  
+  if (z==3){
+    Cuota= C_ref*Nexplot[t]/Nexplot_ref
+  }
+  
+  CBA=Cuota*exp(rnorm(1,0,cv_implementa))
+#------Calculo F ------------------------------  
+  
+  n=matrix(NA,1,length(Sel))
+  F0=0.4 # F inicial
+  n=N[,t]
+  dat=data.frame(n,Sel,M,CBA) # datos para resolver Ec. captura
+  
+  # Optimización/estimación del F dado la cuota   
+  pars_fin=optim(par=F0,fn=error_cuota, data=dat, method="BFGS")
+  
+
+  F[,t]=pars_fin$par*Sel
+  Z[,t]=F[,t]+M
+  C[,t]=N[,t]*F[,t]*Sel*(1-exp(-Z[,t]))/Z[,t]
+  
+  print(c(z, i, sum(C[,t]),max(F[,t])))
+
+  
+  BD[t]=sum(Peso*N[,t]*Om*exp(-dts*Z[,t]))
+
+  #Talla promedio anual de la pesqueria
+  
+  Lmed[t]=sum(C[,t]*Ledad)/(sum(C[,t])+1e-10)
+  
+  
+}  # FIN DEL CICLO ANUAL
+
+# almaceno las variables de interes
+ 
+ matBio[i,]=BD 
+ matCap[i,]=colSums(C)
+ matEff[i,]=F[max(edad),]
+ matNexp[i,]=Nexplot 
+ matLmed[i,]=Lmed
+ 
+}
+  }
+# fin ciclo replicas
+```
+
+
+### Desempeño
+
+```{r warning=FALSE}
+
+  
+  # Riesgo de sobreexplotacion (ultimos 5 años)
+  
+  
+  prisk=length(which(matBio[,16:20]<BDrms))/(5*length(matBio[,16:20]))
+  capt_med=mean(matCap[,16:20])
+  eff_med=mean(matEff[,16:20])
+  var_eff=sd(matEff[,16:20])
+  Lmed_med=mean(matLmed[,16:20])
+
+  row.names(mat_result)=c("prisk","capt_med","eff_med","var_eff","Lmed")
+  mat_result[,z]=c(prisk,capt_med,eff_med,var_eff,Lmed_med)
+yrs=seq(1,nanos) 
+  
+  par(mfrow = c(2, 2))
+  
+  matplot(t(matBio)/BDrms,type="l",col="gray",
+          ylim=c(0,max(t(matBio/BDrms))), ylab="Biomasa/Brms",notch=T,outpch ="")
+  lines(colMeans(matBio/BDrms),lwd=2)
+  abline(h=1,col="red", lwd=2)
+  
+  matplot(t(matCap),type="l",col="gray",
+          ylim=c(0,max(matCap)), ylab="CBA",notch=T,outpch ="")
+  lines(colMeans(matCap),lwd=2)
+  abline(h=C_ref,col="red", lwd=2)
+  
+  matplot(t(matLmed),type="l",col="gray",
+          ylim=c(95,max(matLmed)), ylab="Talla promedio",notch=T,outpch ="")
+  lines(colMeans(matLmed),lwd=2)
+  abline(h=100,col="red", lwd=2)
+  
+  
+  
+ # fin ciclo  reglas (z)
+```
+
+
+```{r}
+plot(Tallas, p, type="b")
+```
 
