@@ -148,7 +148,7 @@ knitr::include_graphics("fig/Error.png")
 
 - Identificación de fuentes de incertidumbre
 
-[Ejercicio 1](Ejercico 1.html)
+[Ejercicio 1](Ejercicio 1.html)
 
 - Implementación de un MO (R-studio). Modelamiento de procesos biológicos, pesqueros y decisionales (RCC)
 

@@ -277,7 +277,4 @@ yrs=seq(1,nanos)
 ```
 
 
-```{r}
-plot(Tallas, p, type="b")
-```
 
